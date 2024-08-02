@@ -11,6 +11,11 @@ pygame.display.set_caption('Planet Simulation')  # Window title
 
 FONT = pygame.font.SysFont("comicsans", 16)  # Create font
 
+# TODO: Add a add planet button (by order)
+# TODO: Add a remove planet button (by order)
+# TODO: Add a speed slider
+# TODO: Add a title (top of window)
+# TODO: Add a side navigation
 
 class Color(Enum):
     WHITE = (255, 255, 255)
