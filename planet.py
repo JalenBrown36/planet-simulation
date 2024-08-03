@@ -2,8 +2,6 @@ import pygame
 import math
 from decimal import Decimal
 
-WIDTH, HEIGHT = 1000, 650
-
 class Planet:
     AU = 149.6e6 * 1000
     G = 6.67428e-11
@@ -30,21 +28,25 @@ class Planet:
         Planet.SCALE = Planet._initial_scale * (1 / (Planet._planet_count ** .9))  # Adjust SCALE
 
     def draw(self, win):
-        x = self.x * Planet.SCALE + WIDTH / 2
-        y = self.y * Planet.SCALE + HEIGHT / 2
+        # Compute the screen coordinates for the planet
+        x = self.x * Planet.SCALE + win.get_width() / 2
+        y = self.y * Planet.SCALE + win.get_height() / 2  
 
+        # Draw the orbit if available
         if len(self.orbit) > 2:
             updated_points = []
             for point in self.orbit:
                 px, py = point
-                px = px * Planet.SCALE + WIDTH / 2
-                py = py * Planet.SCALE + HEIGHT / 2
+                px = px * Planet.SCALE + win.get_width() / 2
+                py = py * Planet.SCALE + win.get_height() / 2
                 updated_points.append((px, py))
 
             pygame.draw.lines(win, self.color, False, updated_points, 2)
 
-        pygame.draw.circle(win, self.color, (int(x), int(y)), int(self.radius))
+        # Draw the planet itself
+        pygame.draw.circle(win, self.color, (int(x), int(y)), int(self.radius / Planet._planet_count ** 2.98))
 
+        # Display the distance from the Sun if it's not the Sun
         if not self.sun:
             FONT = pygame.font.SysFont("comicsans", 16)  # Create font
             distance_text = FONT.render(f"{'%.2E' % Decimal(self.distance_to_sun / 1000)} km", 1, (255, 255, 255))
