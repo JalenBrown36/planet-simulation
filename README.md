@@ -1,8 +1,9 @@
 # Planet Simulation 🌍
 Inspired by **[Tech With Tim](https://www.youtube.com/watch?v=WTLPmUHTPqo)**
 
-A GUI application built with Pygame🐍, where I utilizing the library to simulate the solar system using Austronmical Unit (AU) and other measurements. 
+A GUI application built with Pygame 🐍 that simulates the solar system using Astronomical Units (AU), radius, mass, and other measurements. The application includes features such as buttons to add or remove planets and automatic resizing based on the number of planets.
 
 # Demo
-https://github.com/user-attachments/assets/293b305c-ee97-4aa0-b83d-8f9470d3c815
+https://github.com/user-attachments/assets/b9e9f137-2560-4598-bd98-a86689f8efaa
+
 
